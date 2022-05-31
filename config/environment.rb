@@ -8,3 +8,12 @@ Bundler.require(:default, ENV['RACK_ENV'])
 
 # Require in all files in 'app' directory
 require_all 'app'
+
+# Reload pry
+def reload
+  # iterate over all files in 'app/models' and load them all (to get new code)
+  Dir.glob('app/models/*').each do |file_name|
+   load file_name
+  end
+  puts "all files in app/models/ reloaded"
+end
