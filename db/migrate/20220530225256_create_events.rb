@@ -1,6 +1,6 @@
 class CreateEvents < ActiveRecord::Migration[6.1]
   def change
-    create_table do |t|
+    create_table :events do |t|
       t.string :event_name
       t.string :image_url
       t.string :location

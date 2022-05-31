@@ -1,3 +1,9 @@
+puts "🌱 Start destroy..."
+User.destroy_all
+Event.destroy_all
+puts "🌱 End destroy..."
+
+
 puts "🌱 Seeding start..."
 
 puts "🌱 Seeding users..."
@@ -20,7 +26,7 @@ puts "🌱 Seeding basketball events..."
     location:"#{Faker::Address.city}, #{Faker::Address.state_abbr}",
     start_time:rand(1..7),
     end_time:rand(6..12),
-    ticket_count:rand(1..100),
+    # ticket_count:rand(1..100),
     rating:rand(1..10)
   )
 end
@@ -34,19 +40,19 @@ puts "🌱 Seeding football events..."
     location:"#{Faker::Address.city}, #{Faker::Address.state_abbr}",
     start_time:rand(1..7),
     end_time:rand(6..12),
-    tickets:rand(1..100),
+    # ticket_count:rand(1..100),
     rating:rand(1..10)
   )
 end
 
-20.times do |i|
-  Ticket.create(
-    user_id:User.ids.sample,
-    event:Event.ids.sample,
-    ticket_price:"$#{rand(30...500)}"
-    paid: false
-    date: "Next Week"
-  )
-end
+# 20.times do |i|
+#   Ticket.create(
+#     user_id:User.ids.sample,
+#     event:Event.ids.sample,
+#     ticket_price:rand(30...500),
+#     paid: false,
+#     date: "Next Week"
+#   )
+# end
 
 puts "✅ Done seeding!"

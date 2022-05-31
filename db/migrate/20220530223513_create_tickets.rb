@@ -4,7 +4,7 @@ class CreateTickets < ActiveRecord::Migration[6.1]
       t.integer :user_id
       t.integer :event_id
       t.integer :ticket_price
-      t.boolean :paid default:false
+      t.boolean :paid
       t.string :date
     end
   end
