@@ -1,6 +1,7 @@
 puts "🌱 Start destroy..."
 User.destroy_all
 Event.destroy_all
+Review.destroy_all
 puts "🌱 End destroy..."
 
 
@@ -44,6 +45,17 @@ puts "🌱 Seeding football events..."
     rating:rand(1..10)
   )
 end
+
+100.times do |i|
+  Review.create(
+    user_id: rand(1..25),
+    event_id: rand(1..50),
+    comment:"#{Faker::Lorem.paragraph(sentence_count: 2)}",
+    rating:rand(1..10)
+  )
+end
+
+puts "🌱 Seeding reviews..."
 
 # 20.times do |i|
 #   Ticket.create(
