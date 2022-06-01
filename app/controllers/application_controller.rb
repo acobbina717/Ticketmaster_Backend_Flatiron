@@ -23,7 +23,7 @@ class ApplicationController < Sinatra::Base
 
   get '/events/:id' do
     event = Event.find(params[:id])
-    event.to_json
+    event.to_json(include: :reviews)
   end
 
   post '/events' do 

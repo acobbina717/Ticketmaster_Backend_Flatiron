@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2022_05_30_230827) do
     t.string "location"
     t.integer "start_time"
     t.integer "end_time"
-    t.integer "tickets"
+    t.integer "ticket_count"
     t.integer "rating"
   end
 
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2022_05_30_230827) do
     t.string "email"
     t.string "username"
     t.string "password"
-    t.string "dob"
+    t.integer "age"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

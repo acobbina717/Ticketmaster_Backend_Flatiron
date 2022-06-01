@@ -6,7 +6,7 @@ class CreateEvents < ActiveRecord::Migration[6.1]
       t.string :location
       t.integer :start_time
       t.integer :end_time
-      t.integer :tickets
+      t.integer :ticket_count
       t.integer :rating
     end
   end
