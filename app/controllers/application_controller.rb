@@ -8,12 +8,12 @@ class ApplicationController < Sinatra::Base
 
   get '/events' do
     events = Event.all
-    events.to_json
+    events.to_json(include: :reviews)
   end
 
   get '/events/:id' do
     event = Event.find(params[:id])
-    event.to_json
+    event.to_json(include: :reviews)
   end
 
   get '/reviews' do
@@ -35,6 +35,11 @@ class ApplicationController < Sinatra::Base
     review = Review.find(params[:id])
     review.destroy
     review.to_json
+  end
+
+  get '/users/:id' do
+    users = User.find(params[:id])
+    users.to_json(include: :reviews)
   end
 
 end
