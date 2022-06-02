@@ -1,19 +1,14 @@
 puts "🌱 Start destroy..."
 
-
 User.destroy_all
 Event.destroy_all
 Review.destroy_all
 
-
 puts "🌱 End destroy..."
-
 
 puts "🌱 Seeding start..."
 
-
 puts "🌱 Seeding users..."
-
 
 30.times do |i|
   User.create(
@@ -24,7 +19,6 @@ end
 
 puts "🌱 Seeding basketball events..."
 
-
 25.times do |i|
   Event.create(
     event_name:"#{Faker::Sports::Basketball.team} vs #{Faker::Sports::Basketball.team}",
@@ -33,9 +27,7 @@ puts "🌱 Seeding basketball events..."
   )
 end
 
-
 puts "🌱 Seeding football events..."
-
 
 25.times do |i|
   Event.create(
@@ -44,7 +36,6 @@ puts "🌱 Seeding football events..."
     location:"#{Faker::Address.city}, #{Faker::Address.state_abbr}",
   )
 end
-
 
 puts "🌱 Seeding Reviews..."
 

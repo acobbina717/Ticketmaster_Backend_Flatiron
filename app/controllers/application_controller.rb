@@ -1,6 +1,5 @@
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
-  
   # Add your routes here
   get "/" do
     { message: "Good luck with your project!!!!!!!!!!!" }.to_json
@@ -13,7 +12,7 @@ class ApplicationController < Sinatra::Base
 
   get '/events/:id' do
     event = Event.find(params[:id])
-    event.to_json
+    event.to_json(include: :reviews)
   end
 
   get '/reviews' do
