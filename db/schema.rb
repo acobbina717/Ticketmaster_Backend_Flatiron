@@ -16,33 +16,22 @@ ActiveRecord::Schema.define(version: 2022_05_30_230827) do
     t.string "event_name"
     t.string "image_url"
     t.string "location"
-    t.integer "start_time"
-    t.integer "end_time"
-    t.integer "ticket_count"
-    t.integer "rating"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "reviews", force: :cascade do |t|
     t.integer "user_id"
     t.integer "event_id"
     t.string "comment"
-    t.integer "rating"
-  end
-
-  create_table "tickets", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "event_id"
-    t.integer "ticket_price"
-    t.boolean "paid"
-    t.string "date"
+    t.integer "review_rating"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
     t.string "username"
-    t.string "password"
-    t.integer "age"
+    t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
