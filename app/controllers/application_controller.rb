@@ -13,7 +13,7 @@ class ApplicationController < Sinatra::Base
   get '/events/:id' do
     event = Event.find(params[:id])
     event.to_json(include: {
-      reviews: { only: [:comment, :review_rating, :event_id,:user_id], include: {
+      reviews: { only: [ :id,:comment, :review_rating, :event_id,:user_id], include: {
         user: { only: [:username] }
       } }
     })
@@ -31,6 +31,15 @@ class ApplicationController < Sinatra::Base
 
   post '/reviews' do
     review = Review.create(
+      comment: params[:comment], 
+      review_rating: params[:review_rating], 
+      event_id: params[:event_id])
+    review.to_json
+  end
+
+  patch '/reviews/:id' do
+    review = Review.find(params[:id])
+    review.update(
       comment: params[:comment], 
       review_rating: params[:review_rating], 
       event_id: params[:event_id])
